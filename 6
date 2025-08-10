@@ -56,4 +56,12 @@ ip_adder = socket.gethostbyname(HOST)
 знаем только имя хоста (miminet.ru) и порт 80. Функция gethostbyname позволяет по DNS имени определить
 IP-адрес хоста. Т.е. по имени miminet.ru она вернет IP-адрес хоста. Сохраним его в переменную ip_addr.
 
-DNS (Domain Name System) - система позволяющая по имени хоста
+DNS (Domain Name System) - система позволяющая по имени хоста узнать его IP-адрес. Каждый раз, когды вы
+в браузере вбиваете ya.ru, miminet.ru, yadro.com или любое другое имя, ваш хост, через DNS, узнает IP-адрес хоста.
+
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+Данный код создает ТСР сокет и сохраняет его в переменную s. Функция socket позволяет создавать не только
+TCP или UDP сокеты. Она принимает два обязательных параметра:
+
+- socket.AF_INET - 
