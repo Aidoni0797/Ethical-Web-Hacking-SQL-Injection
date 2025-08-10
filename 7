@@ -1,0 +1,22 @@
+7
+Обработка ошибок
+
+РАссматриваемый код из примера годится только для примера. Не трудно заметить, что там нет обработки
+ошибок. Давайте добавим обработку ошибок и посмотрим, что может пойти не так.
+
+#!/usr/bin/python
+
+import socket
+
+HOST = "miminet.ru"
+PORT = 80
+
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+try:
+  s.connect((HOST, PORT))
+  s.send(b"GET / HTTP/1.0\n\n")
+  data = s.recv(4096)
+  print(data)
+except Exception as e:
+  print("Socket error: "+str(e))
