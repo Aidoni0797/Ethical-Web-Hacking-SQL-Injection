@@ -1,0 +1,21 @@
+Нам необходимо выполнить следующие действия:
+- создать ТСР сокет
+- подключиться к веб-серверу miminet на порт 80
+- отправить HTTP-запрос
+- получить ответ и вывести его на экран
+
+#!/usr/bin/python
+
+import socket
+
+HOST = 'miminet.ru'
+PORT = 80
+
+ip_addr = socket.gethostbyname(HOST)
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.connect((ip_addr, PORT))
+s.send(b'GET / HTTP/1.0\n\n')
+data = s.recv(4096)
+print(data)
+
+#iDONi в своей жизне впервые подключается и узнает что так можно
